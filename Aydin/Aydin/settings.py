@@ -28,7 +28,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'main.apps.MainConfig',  ##添加新模块的信息
+    'scoter.apps.ScoterConfig',  # 便于测试
+    'main.apps.MainConfig',  # 添加新模块的信息
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -22,4 +22,5 @@ urlpatterns = [
     path('', views.index, name='index'),  # 设置网站访问主页
 
     path('main/', include('main.urls')),  # 添加新模块的urls
+    path('scoter/', include('scoter.urls')),  # 添加新模块的urls
 ]
