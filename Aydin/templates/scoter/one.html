@@ -2,13 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>测试</title>
+    <title>能源数据</title>
     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "common/themes/default/easyui.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "common/themes/icon.css" %}"/>
     <script type="application/javascript" src="{% static "common/jquery.min.js" %}"></script>
     <script type="application/javascript" src="{% static "common/jquery.easyui.min.js" %}"></script>
     <script type="application/javascript" src="{% static "scoter/one.js" %}"></script>
 </head>
 <body>
-<P>{{ data }}</P>
+<body style="overflow: hidden" onload="init();">
+<div class="easyui-layout" data-options='fit:true'>
+    <div class="easyui-panel" data-options="region:'north',border:false,collapsible:false"
+         style="height:60px;position:relative;">
+        <div style="position:absolute;top:15px;left:20px;">
+            <form id="dataForm">
+                <table>
+                    <tr>
+                        <td style="padding-right: 10px">类别:<select id="category" style="width:150px">
+                            <option value="WATER">用水量(/吨)</option>
+                            <option value="ELECTRICITY">用电量(/度)</option>
+                        </select>
+                        </td>
+                        <td style="padding-right: 10px">今日用量：<input class="easyui-numberbox" precision="2" id="value"
+                                                                    name="value"/></td>
+                        <td style="padding-right: 10px">日期：<input class="easyui-datebox"
+                                                                  data-options="formatter:myformatter,parser:myparser"
+                                                                  id="dataDate" name="dataDate"/></td>
+                        <td><a href="javascript:void(0)" class="easyui-linkbutton" onclick="gather()" title="gather"
+                               data-options="iconCls:'icon-add'">添加/更新</a></td>
+                        <td><a href="javascript:void(0)" class="easyui-linkbutton" onclick="refresh()" title="refresh"
+                               data-options="iconCls:'icon-reload'">刷新</a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="easyui-panel" data-options="region:'center'">
+        <div id="table" style="width:100%;height:100%"></div>
+    </div>
+</div>
+</body>
 </body>
 </html>
