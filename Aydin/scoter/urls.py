@@ -9,4 +9,5 @@ from scoter import views
 urlpatterns = [
     path('one', views.one, name='one'),
     path('showData', views.showData, name='showData'),
+    path('gather', views.gather, name='gather'),
 ]

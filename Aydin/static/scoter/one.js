@@ -13,12 +13,12 @@ function gather() {
     var msg = "您确定添加/更新此项内容吗？";
     if (confirm(msg) == true) {
         $.ajax({
-            url: 'Handler.ashx',
-            type: 'Post',
-            data: { Method: 'Gather', category: category, value: value, dataDate: dataDate },
+            url: '/scoter/gather',
+            type: 'get',
+            data: {category: category, value: value, dataDate: dataDate },
             dataType: 'JSON',
             success: function (data) {
-                if (data.SUCCESS) {
+                if (data) {
                     alert("添加/更新成功！");
                 } else {
                     alert("添加/更新失败！");
